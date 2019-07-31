@@ -21,6 +21,11 @@ var SM = {
         init: function(context, command){
             Sketch = new API();
             ga = new Analytics(context);
+            var documentData = context.document.documentData();
+            for (var i = 0; i < documentData.foreignSymbols().count(); i++) {
+                var foreignSymbol = documentData.foreignSymbols().objectAtIndex(i);
+                foreignSymbol.unlinkFromRemote();
+            }
 
             this.prefs = NSUserDefaults.standardUserDefaults();
             this.context = context;
@@ -2614,11 +2619,7 @@ SM.extend({
 
             layerData.objectID = symbolObjectID;
             
-            var documentData = self.context.document.documentData();
-            for (var i = 0; i < documentData.foreignSymbols().count(); i++) {
-                var foreignSymbol = documentData.foreignSymbols().objectAtIndex(i);
-                foreignSymbol.convertToLocalSymbolMaster();
-            }
+            
 
             if( !self.hasExportSizes(layer.symbolMaster()) && layer.symbolMaster().children().count() > 1 ){
                 var symbolRect = this.getRect(layer),
