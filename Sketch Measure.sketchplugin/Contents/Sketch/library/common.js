@@ -2614,7 +2614,7 @@ SM.extend({
 
             layerData.objectID = symbolObjectID;
             
-            var documentData = context.document.documentData();
+            var documentData = self.context.document.documentData();
             for (var i = 0; i < documentData.foreignSymbols().count(); i++) {
                 var foreignSymbol = documentData.foreignSymbols().objectAtIndex(i);
                 foreignSymbol.convertToLocalSymbolMaster();
