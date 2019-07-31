@@ -1201,7 +1201,7 @@ SM.extend({
                             }
                         }
                         else if(request == "export"){
-                            if( options.exportCallback(windowObject) ){
+                            if( options.exportCallback(windowObject) ) {
                                  self.message(_("Export complete!"));
                             }
                         }
@@ -2613,6 +2613,12 @@ SM.extend({
                 symbolObjectID = this.toJSString(layer.symbolMaster().objectID());
 
             layerData.objectID = symbolObjectID;
+            
+            var documentData = context.document.documentData();
+            for (var i = 0; i < documentData.foreignSymbols().count(); i++) {
+                var foreignSymbol = documentData.foreignSymbols().objectAtIndex(i);
+                foreignSymbol.convertToLocalSymbolMaster();
+            }
 
             if( !self.hasExportSizes(layer.symbolMaster()) && layer.symbolMaster().children().count() > 1 ){
                 var symbolRect = this.getRect(layer),
