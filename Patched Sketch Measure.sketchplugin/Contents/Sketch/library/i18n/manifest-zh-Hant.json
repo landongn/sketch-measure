@@ -175,13 +175,13 @@
               ]
             }
         ],
-        "title" : "Sketch Measure"
+        "title" : "(patched) Sketch Measure"
     },
-    "identifier": "com.utom.measure",
-    "appcast": "https://raw.githubusercontent.com/utom/sketch-measure/master/appcast.xml",
-    "homepage": "http://utom.design/measure/",
+    "identifier": "com.landongn.measure",
+    "appcast": "https://raw.githubusercontent.com/landongn/sketch-measure/master/appcast.xml",
+    "homepage": "https://landon.dev/",
     "version": "2.8.2",
     "description" : "Make it a fun to create spec for developers and teammates",
-    "authorEmail" : "utombox@gmail.com",
-    "name" : "Sketch Measure"
+    "authorEmail" : "landon.noss@sony.com",
+    "name" : "(patched) Sketch Measure"
 }
